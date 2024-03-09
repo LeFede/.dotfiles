@@ -1,0 +1,42 @@
+# preparedot
+# movedot
+# restoredot
+
+/*
+
+/.config/*
+/.config/nvim/*
+/.config/nvim/lua/*
+/.config/nvim/lua/plugins/*
+/.config/nvim/lua/plugins/configs/*
+
+!/.config/
+!/.config/nvim
+!/.config/nvim/lua
+!/.config/nvim/lua/custom
+!/.config/nvim/lua/plugins
+!/.config/nvim/lua/plugins/configs
+!/.config/nvim/lua/plugins/configs/nvimtree.lua
+
+**/.git2
+**/.github2
+**/.gitignore2
+# !.config/nvim/lua/custom/*
+
+!/.config/alacritty
+!/.config/i3
+!/.config/silicon
+!/.config/emoji
+!/.config/fontconfig
+!/.bashrc
+!/.fonts
+!/.config/install.sh
+
+!/.local
+/.local/*
+!/.local/bin
+/.local/bin/*
+!/.local/bin
+!/.local/bin/nvim.appimage
+!/.gitignore
+!/.git
