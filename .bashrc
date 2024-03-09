@@ -175,20 +175,6 @@ pic() {
 # Clipboard Selection 	Ctrl + Shift + PrtScrn
 # Clipboard Active Window 	Ctrl + Super + PrtScrn
 #
-copydot() {
-
-  cp -rf ~/.config/alacritty ~/.testing/
-  cp -rf ~/.config/alacritty/catppuccin/ ~/.testing/alacritty/
-  cp -rf ~/.config/emoji ~/.testing/
-  cp -rf ~/.config/fontconfig ~/.testing/
-  cp -rf ~/.config/i3 ~/.testing/
-  cp -rf ~/.config/nvim/lua/custom ~/.testing/nvim-custom
-  cp -rf ~/.config/nvim/lua/plugins/configs/nvimtree.lua ~/.testing/nvimtree.lua
-  cp -rf ~/.config/silicon ~/.testing/
-  cp -rf ~/.bashrc ~/.testing/
-  cp -rf ~/.fonts ~/.testing/
-  cp -rf ~/.local/bin/nvim.appimage ~/.testing/
-}
 
 preparedot() {
   mv ~/.config/nvim/.gitignore ~/.config/nvim/.gitignore2
