@@ -1,0 +1,7 @@
+--shadow-color '#555'
+# --background '#fff'
+--shadow-blur-radius 10
+--no-window-controls
+
+--pad-vert 50
+--pad-horiz 40
