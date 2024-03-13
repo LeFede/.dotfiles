@@ -205,3 +205,9 @@ restoredot() {
   mv ~/.config/nvim/.github2 ~/.config/nvim/.github
   mv ~/.config/alacritty/catppuccin/.git2 ~/.config/alacritty/catppuccin/.git
 }
+
+# discord 
+# sudo apt update
+# sudo apt upgrade
+# wget "https://discord.com/api/download?platform=linux&format=deb" - O discord.deb
+# sudo apt install ./discord.deb
