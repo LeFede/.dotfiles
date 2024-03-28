@@ -147,7 +147,7 @@ alias bt="blueman-manager"
 #gsettings set org.blueman.plugins.powermanager auto-power-on false
 
 # Wifi 
-alias w="nmtui"
+alias wifi="nmtui"
 
 # R-info
 alias rinfo="java -jar $HOME/facu/rinfo/Rinfo-2.8-linux.jar"
@@ -211,3 +211,16 @@ restoredot() {
 # sudo apt upgrade
 # wget "https://discord.com/api/download?platform=linux&format=deb" - O discord.deb
 # sudo apt install ./discord.deb
+#
+
+# Monitor 
+# xrandr --output HDMI-2 --auto --right-of eDP-1
+
+# Audio
+# alsamixer
+
+export PATH=$PATH:~/.zig
+alias mr="make run"
+alias mt="make test"
+
+alias snippets="cd ~/.local/share/nvim/lazy/friendly-snippets/snippets/"

@@ -45,13 +45,13 @@ local plugins = {
   --     handlers = {},
   --   },
   -- },
-  -- {
-  --   "jose-elias-alvarez/null-ls.nvim",
-  --   event = "VeryLazy",
-  --   opts = function()
-  --     return require "custom.configs.null-ls"
-  --   end,
-  -- },
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    event = "VeryLazy",
+    opts = function()
+      return require "custom.configs.null-ls"
+    end,
+  },
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -72,19 +72,20 @@ local plugins = {
         "css-lsp",
         "eslint-lsp",
         "prettierd",
-        "rust-analyzer"
+        "rust-analyzer",
+        "zls",
         -- "clang-format",
         -- "codelldb",
       }
     }
   },
   {
-    "Pocco81/auto-save.nvim",
-    event = "TextChanged",
-    config = function()
-      require("auto-save").setup()
-    end
+    "okuuva/auto-save.nvim",
+    -- cmd = "ASToggle",
+    event = { "InsertLeave", "TextChanged" },
+    opts = require("custom.configs.auto-save"),
   },
+
   -- {
   --   "neovim/nvim-lspconfig",
   --   config = function()
@@ -127,6 +128,7 @@ local plugins = {
       return opts
     end
   },
+
 }
 
 return plugins

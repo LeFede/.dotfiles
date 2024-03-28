@@ -17,6 +17,7 @@
 !/.config/nvim/lua/plugins
 !/.config/nvim/lua/plugins/configs
 !/.config/nvim/lua/plugins/configs/nvimtree.lua
+!/.config/nvim/lua/plugins/configs/cmp.lua
 
 **/.git2
 **/.github2

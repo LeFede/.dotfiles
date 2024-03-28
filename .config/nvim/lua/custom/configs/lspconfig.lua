@@ -22,6 +22,7 @@ local servers = {
   "cssmodules_ls",
   "tailwindcss",
   "eslint",
+  "zls",
 }
 -- local util = require "lspconfig/util"
 
@@ -32,3 +33,4 @@ for _, lsp in ipairs(servers) do
     capabilities = capabilities,
   }
 end
+

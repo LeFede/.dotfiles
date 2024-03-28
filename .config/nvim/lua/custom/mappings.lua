@@ -1,5 +1,4 @@
 local M = {}
-
 M.general = {
   i = {
     ["jk"] = { "<ESC>", "Exit insert mode" },

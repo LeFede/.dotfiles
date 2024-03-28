@@ -31,6 +31,7 @@ set $panelMemoryFormat memory.format='{used} {percent:05.02f}%'
 set $panelFont pango:HackNerdFont
 set $panelFontSize 10
 set $panelModules battery memory date time
+# amixer
 set $panelPosition top
 set $panelTheme dracula-powerline
 set $panelTrayPadding 0
@@ -273,7 +274,7 @@ gaps outer $window_gap
 gaps inner $window_gap
 # On init
 exec nitrogen --restore
-exec --no-startup-id xautolock -time $time_sleep -locker "systemctl suspend" -corners 0-00
+exec --no-startup-id xautolock -time $time_sleep -locker "systemctl suspend" -corners 000-
 exec xset dpms 0 0 $time_lock
 exec gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 # exec --no-startup-id /usr/libexec/gsd-xsettings
@@ -297,3 +298,8 @@ bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/$(d
 bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
+
+## Monitor
+# move focused workspace between monitors
+bindsym $mod+Ctrl+greater move workspace to output right
+bindsym $mod+Ctrl+less move workspace to output left
