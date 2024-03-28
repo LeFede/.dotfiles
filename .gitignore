@@ -10,6 +10,7 @@
 /.config/nvim/lua/plugins/*
 /.config/nvim/lua/plugins/configs/*
 
+
 !/.config/
 !/.config/nvim
 !/.config/nvim/lua
@@ -41,3 +42,6 @@
 !/.local/bin/nvim.appimage
 !/.gitignore
 !/.git
+
+!/.snippets
+
