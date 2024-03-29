@@ -11,6 +11,30 @@ fi
 apt update
 apt upgrade
 
+
+# Paso 1: Verificar y crear la carpeta .local/share/bin si no existe
+if [ ! -d "$HOME/.local/share/bin" ]; then
+    mkdir -p "$HOME/.local/share/bin"
+fi
+
+# Paso 2: Verificar y crear la carpeta .config si no existe
+if [ ! -d "$HOME/.config" ]; then
+    mkdir -p "$HOME/.config"
+fi
+
+# Paso 3: Copiar .dotfiles/.config/nvim a ~/.config/
+cp -r .dotfiles/.config/nvim "$HOME/.config/"
+
+# Paso 4: Copiar .dotfiles/.config/.snippets a ~/.config/
+cp -r .dotfiles/.config/.snippets "$HOME/.config/"
+
+# Paso 5: Copiar .dotfiles/.local/share/bin/nvim a ~/.local/share/bin/
+cp -r .dotfiles/.local/share/bin/nvim "$HOME/.local/share/bin/"
+
+# Paso 6: Borrar ~/.bashrc y copiar .config/.bashrc a ~/
+rm -f "$HOME/.bashrc"
+cp .dotfiles/.config/.bashrc "$HOME/"
+
 # Fondos
 # sudo apt-get install -y nitrogen
 # ??

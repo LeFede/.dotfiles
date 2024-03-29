@@ -46,6 +46,7 @@
 !/.git
 
 
+!/.install.sh
 !/.snippets
 !/.config/.snippets
 !/.config/.snippets/*
