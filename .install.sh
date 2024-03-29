@@ -14,10 +14,10 @@ apt upgrade
 # Fondos
 # sudo apt-get install -y nitrogen
 # ??
-# sudo apt-get install -y maim xclip 
+# sudo apt-get install -y maim 
 
 # DEV
-sudo apt-get install -y ripgrep clangd zip unzip python3-pip build-essential wget fuse curl
+sudo apt-get install -y ripgrep clangd zip unzip python3-pip build-essential wget fuse curl xclip
 
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 sudo apt install -y nodejs
@@ -28,6 +28,10 @@ sudo mkdir -p -m 755 /etc/apt/keyrings && wget -qO- https://cli.github.com/packa
 && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
 && sudo apt update \
 && sudo apt install gh -y
+
+# rust
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+rustup update
 
 # wget "https://discord.com/api/download?platform=linux&format=deb" - O discord.deb
 # sudo apt install -y ./discord.deb

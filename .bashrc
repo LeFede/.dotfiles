@@ -217,3 +217,14 @@ alias mr="make run"
 alias mt="make test"
 
 alias snippets="cd ~/.local/share/nvim/lazy/friendly-snippets/snippets/"
+
+
+
+clip () {
+  if [ "$#" -eq 0 ]; then
+    # 
+    :
+  else 
+    cat $1 | xclip -selection clipboard
+  fi
+}

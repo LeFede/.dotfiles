@@ -1,0 +1,14 @@
+{
+  "Guard": {
+    "prefix": "!guard",
+    "body": [
+      "#ifndef ${1:file_name}_H",
+      "#define ${1:file_name}_H",
+      "",
+      "${2}",
+      "",
+      "#endif"
+    ],
+    "description": "header guard. format :\n\tINCLUDE_<dirname>_<filename>_<extension>_"
+  }
+}

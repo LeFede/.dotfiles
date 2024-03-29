@@ -14,7 +14,7 @@
 !/.config/
 !/.config/snippets
 !/.config/snippets/*
-# !/.config/nvim
+!/.config/nvim
 # !/.config/nvim/lua
 # !/.config/nvim/lua/custom
 # !/.config/nvim/lua/plugins
