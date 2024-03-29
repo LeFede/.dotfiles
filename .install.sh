@@ -10,32 +10,21 @@ fi
 apt update
 apt upgrade
 
-
-# Paso 1: Verificar y crear la carpeta .local/bin si no existe
-if [ ! -d "/home/fede/.local" ]; then
-  sudo mkdir -p "/home/fede/.local"
-fi
-if [ ! -d "/home/fede/.local/bin" ]; then
-  sudo mkdir -p "/home/fede/.local/bin"
-fi
-
-# Paso 2: Verificar y crear la carpeta .config si no existe
-if [ ! -d "/home/fede/.config" ]; then
-  sudo mkdir -p "/home/fede/.config"
-fi
+mkdir -p "/home/fede/.local/bin"
+mkdir -p "/home/fede/.config"
 
 # Paso 3: Copiar .dotfiles/.config/nvim a ~/.config/
-sudo cp -r ~/.dotfiles/.config/nvim "/home/fede/.config/"
+cp -r /home/fede/.dotfiles/.config/nvim /home/fede/.config/
 
 # Paso 4: Copiar .dotfiles/.config/.snippets a ~/.config/
-sudo cp -r ~/.dotfiles/.config/.snippets "/home/fede/.config/"
+cp -r /home/fede/.dotfiles/.config/.snippets /home/fede/.config/
 
 # Paso 5: Copiar .dotfiles/.local/bin/nvim a ~/.local/bin/
-sudo cp -r ~/.dotfiles/.local/bin/nvim.appimage "/home/fede/.local/bin/"
+cp -r /home/fede/.dotfiles/.local/bin/nvim.appimage /home/fede/.local/bin/
 
 # Paso 6: Borrar ~/.bashrc y copiar .config/.bashrc a ~/
-sudo rm -f "/home/fede/.bashrc"
-sudo cp ~/.dotfiles/.bashrc "/home/fede/"
+rm -f /home/fede/.bashrc
+cp /home/fede/.dotfiles/.bashrc /home/fede/
 
 # Fondos
 # sudo apt-get install -y nitrogen
@@ -61,7 +50,7 @@ sudo mkdir -p -m 755 /etc/apt/keyrings && wget -qO- https://cli.github.com/packa
 # audio
 # sudo apt-get install -y expat libxml2-dev pkg-config libasound2-dev libssl-dev cmake libfreetype6-dev libexpat1-dev libxcb-composite0-dev libharfbuzz-dev 
 
-source .bashrc
+source /home/fede/.bashrc
 o
 
 echo "Buenisimo loco 👍️"
