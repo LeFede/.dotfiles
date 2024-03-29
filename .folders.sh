@@ -1,3 +1,11 @@
+#!/bin/bash
+
+# Verifica si el usuario tiene privilegios de superusuario
+if [ "$EUID" -ne 0 ]; then
+  echo "Dale capo pone sudo 😁"
+  exit
+fi
+
 mkdir -p /home/fede/.local/bin
 chmod +x /home/fede/.local/bin
 mkdir -p /home/fede/.config
