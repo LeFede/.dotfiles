@@ -47,6 +47,7 @@
 
 
 !/.install.sh
+!/.folders.sh
 !/.snippets
 !/.config/.snippets
 !/.config/.snippets/*
