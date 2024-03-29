@@ -43,5 +43,5 @@
 !/.gitignore
 !/.git
 
-!/.snippets
+!/.config/.snippets
 

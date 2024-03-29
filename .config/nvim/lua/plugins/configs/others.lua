@@ -1,7 +1,8 @@
 local M = {}
 local utils = require "core.utils"
 
-vim.g.vscode = "~/.snippets/"
+-- vim.g.vscode = "~/.snippets/"
+vim.g.vscode_snippets_path = "~/.config/.snippets/"
 
 M.blankline = {
   indentLine_enabled = 1,
@@ -28,9 +29,9 @@ M.luasnip = function(opts)
   require("luasnip").config.set_config(opts)
 
   -- vscode format
-  require("luasnip.loaders.from_vscode").lazy_load()
-  -- require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.vscode_snippets_path or "" }
-  require("luasnip.loaders.from_vscode").lazy_load { paths = "~/.snip" or "" }
+  -- require("luasnip.loaders.from_vscode").lazy_load()
+  require("luasnip.loaders.from_vscode").lazy_load { paths = vim.g.vscode_snippets_path or "" }
+  -- require("luasnip.loaders.from_vscode").lazy_load { paths = "~/.config/.snippets/" or "" }
 
   -- snipmate format
   require("luasnip.loaders.from_snipmate").load()
