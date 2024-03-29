@@ -17,8 +17,8 @@ set $window_border 1
 set $window_gap    5px
 
 # Power
-set $time_sleep 5
-set $time_lock  240
+set $time_sleep 3
+set $time_lock  0
 
 # Step
 set $step_bright 1

@@ -5,10 +5,10 @@
 /*
 
 /.config/*
-/.config/nvim/*
-/.config/nvim/lua/*
-/.config/nvim/lua/plugins/*
-/.config/nvim/lua/plugins/configs/*
+# /.config/nvim/*
+# /.config/nvim/lua/*
+# /.config/nvim/lua/plugins/*
+# /.config/nvim/lua/plugins/configs/*
 
 
 !/.config/
