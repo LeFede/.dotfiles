@@ -13,6 +13,12 @@ apt upgrade
 
 
 # Paso 1: Verificar y crear la carpeta .local/share/bin si no existe
+if [ ! -d "$HOME/.local" ]; then
+    mkdir -p "$HOME/.local"
+fi
+if [ ! -d "$HOME/.local/share" ]; then
+    mkdir -p "$HOME/.local/share"
+fi
 if [ ! -d "$HOME/.local/share/bin" ]; then
     mkdir -p "$HOME/.local/share/bin"
 fi
@@ -33,7 +39,7 @@ cp -r .dotfiles/.local/share/bin/nvim "$HOME/.local/share/bin/"
 
 # Paso 6: Borrar ~/.bashrc y copiar .config/.bashrc a ~/
 rm -f "$HOME/.bashrc"
-cp .dotfiles/.config/.bashrc "$HOME/"
+cp ~/.dotfiles/.bashrc "$HOME/"
 
 # Fondos
 # sudo apt-get install -y nitrogen
@@ -41,7 +47,7 @@ cp .dotfiles/.config/.bashrc "$HOME/"
 # sudo apt-get install -y maim xclip 
 
 # DEV
-sudo apt-get install -y ripgrep clangd git zip unzip python3-pip build-essential wget fuse curl
+sudo apt-get install -y ripgrep clangd zip unzip python3-pip build-essential wget fuse curl
 
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 sudo apt install -y nodejs
@@ -59,5 +65,7 @@ sudo mkdir -p -m 755 /etc/apt/keyrings && wget -qO- https://cli.github.com/packa
 # audio
 # sudo apt-get install -y expat libxml2-dev pkg-config libasound2-dev libssl-dev cmake libfreetype6-dev libexpat1-dev libxcb-composite0-dev libharfbuzz-dev 
 
+source .bashrc
+o
 
 echo "Buenisimo loco 👍️"
