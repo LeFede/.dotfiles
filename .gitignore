@@ -47,4 +47,6 @@
 
 
 !/.snippets
+!/.config/.snippets
+!/.config/.snippets/*
 !/.snippets/*
