@@ -10,5 +10,23 @@
       "#endif"
     ],
     "description": "header guard. format :\n\tINCLUDE_<dirname>_<filename>_<extension>_"
+  },
+
+  "Struct declaration": {
+    "prefix": "!sd",
+    "body": [
+      "typedef struct ${1: name} ${1:name};"
+    ],
+    "description": "Struct declaration"
+  },
+
+  "Function declaration": {
+    "prefix": "!fnd",
+    "body": [
+      "${1: type}", 
+      "${2:name}",
+      "(${3:args});"
+    ],
+    "description": "Function declaration"
   }
 }
