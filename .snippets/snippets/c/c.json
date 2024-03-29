@@ -1,0 +1,123 @@
+{
+  "Fede": {
+    "prefix": "!fede",
+    "body": ["🚀 ;D"],
+    "description": "Probando xd"
+  },
+  
+
+  "Guard": {
+    "prefix": "!guard",
+    "body": [
+      "#ifndef ${1:file_name}",
+      "#define ${1:file_name}",
+      "",
+      "${2}",
+      "",
+      "#endif"
+    ],
+    "description": "Guard"
+  },
+
+  "Local lib": {
+    "prefix": "!lib",
+    "body": [
+      "#include \"../include/${1:lib_name}.h\""
+    ],
+    "description": "Include local lib"
+  },
+
+  "Global lib": {
+    "prefix": "!glib",
+    "body": [
+      "#include <${1:lib_name}.h>"
+    ],
+    "description": "Include global lib"
+  },
+
+  "Main": {
+    "prefix": "!main",
+    "body": [
+      "int main(int argc, char *argv[])",
+      "{",
+      "  ${1}",
+      "}"
+    ],
+    "description": "Main starter"
+  },
+
+  "Function declaration": {
+    "prefix": "!fnd",
+    "body": [
+      "${1: type}", 
+      "${2:name}",
+      "(${3:args});"
+    ],
+    "description": "Function declaration"
+  },
+
+  "Function definition": {
+    "prefix": "!fn",
+    "body": [
+      "${1: type}", 
+      "${2:name}",
+      "(${3:args})",
+      "{",
+      "  ${4}",
+      "}"
+    ],
+    "description": "Function definition"
+  },
+  
+  "Struct declaration": {
+    "prefix": "!sd",
+    "body": [
+      "typedef struct ${1: name} ${1:name};"
+    ],
+    "description": "Struct declaration"
+  },
+
+  "Struct definition": {
+    "prefix": "!s",
+    "body": [
+      "typedef struct ${1: name}",
+      "{",
+      "  ${2:fields}",
+      "} ${1:name};"
+    ],
+    "description": "Struct declaration"
+  },
+
+  "print ln": {
+    "prefix": "!p",
+    "body": [
+      "println(\"${1:string}\", ${2:args});"
+    ],
+    "description": "Print line"
+  },
+
+  "multi platform": {
+    "prefix": "!win",
+    "body": [
+      "#if defined _WIN32 || defined _WIN64 ",
+      "  home_dir = getenv(\"USERPROFILE\");",
+      "#elif defined __APPLE__ || defined __linux__",
+      "  home_dir = getenv(\"HOME\");",
+      "#endif"
+    ],
+    "description": "Macros for multiplatform"
+  },
+
+  "thread": {
+    "prefix": "!thread",
+    "body": [
+      "void thread_create(handler)",
+      "{",
+      "  pthread_t thread;",
+      "  pthread_create(&thread, NULL, fn, handler);",
+      "  pthread_detach(thread);",
+      "}"
+    ],
+    "description": "Thread creation"
+  }
+}

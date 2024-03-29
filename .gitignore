@@ -12,13 +12,15 @@
 
 
 !/.config/
-!/.config/nvim
-!/.config/nvim/lua
-!/.config/nvim/lua/custom
-!/.config/nvim/lua/plugins
-!/.config/nvim/lua/plugins/configs
-!/.config/nvim/lua/plugins/configs/nvimtree.lua
-!/.config/nvim/lua/plugins/configs/cmp.lua
+!/.config/snippets
+!/.config/snippets/*
+# !/.config/nvim
+# !/.config/nvim/lua
+# !/.config/nvim/lua/custom
+# !/.config/nvim/lua/plugins
+# !/.config/nvim/lua/plugins/configs
+# !/.config/nvim/lua/plugins/configs/nvimtree.lua
+# !/.config/nvim/lua/plugins/configs/cmp.lua
 
 **/.git2
 **/.github2
@@ -43,5 +45,6 @@
 !/.gitignore
 !/.git
 
-!/.config/.snippets
 
+!/.snippets
+!/.snippets/*
