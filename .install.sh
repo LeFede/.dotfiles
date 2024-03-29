@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Verifica si el usuario tiene privilegios de superusuario
 if [ "$EUID" -ne 0 ]; then
   echo "Dale capo pone sudo 😁"
@@ -12,34 +11,31 @@ apt update
 apt upgrade
 
 
-# Paso 1: Verificar y crear la carpeta .local/share/bin si no existe
-if [ ! -d "$HOME/.local" ]; then
-    mkdir -p "$HOME/.local"
+# Paso 1: Verificar y crear la carpeta .local/bin si no existe
+if [ ! -d "/home/fede/.local" ]; then
+    mkdir -p "/home/fede/.local"
 fi
-if [ ! -d "$HOME/.local/share" ]; then
-    mkdir -p "$HOME/.local/share"
-fi
-if [ ! -d "$HOME/.local/share/bin" ]; then
-    mkdir -p "$HOME/.local/share/bin"
+if [ ! -d "/home/fede/.local/bin" ]; then
+    mkdir -p "/home/fede/.local/bin"
 fi
 
 # Paso 2: Verificar y crear la carpeta .config si no existe
-if [ ! -d "$HOME/.config" ]; then
-    mkdir -p "$HOME/.config"
+if [ ! -d "/home/fede/.config" ]; then
+    mkdir -p "/home/fede/.config"
 fi
 
 # Paso 3: Copiar .dotfiles/.config/nvim a ~/.config/
-cp -r .dotfiles/.config/nvim "$HOME/.config/"
+cp -r ~/.dotfiles/.config/nvim "/home/fede/.config/"
 
 # Paso 4: Copiar .dotfiles/.config/.snippets a ~/.config/
-cp -r .dotfiles/.config/.snippets "$HOME/.config/"
+cp -r ~/.dotfiles/.config/.snippets "/home/fede/.config/"
 
 # Paso 5: Copiar .dotfiles/.local/share/bin/nvim a ~/.local/share/bin/
-cp -r .dotfiles/.local/share/bin/nvim "$HOME/.local/share/bin/"
+cp -r ~/.dotfiles/.local/share/bin/nvim "/home/fede/.local/share/bin/"
 
 # Paso 6: Borrar ~/.bashrc y copiar .config/.bashrc a ~/
-rm -f "$HOME/.bashrc"
-cp ~/.dotfiles/.bashrc "$HOME/"
+rm -f "/home/fede/.bashrc"
+cp ~/.dotfiles/.bashrc "/home/fede/"
 
 # Fondos
 # sudo apt-get install -y nitrogen
