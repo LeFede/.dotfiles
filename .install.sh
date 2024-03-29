@@ -10,8 +10,10 @@ fi
 apt update
 apt upgrade
 
-mkdir -p "/home/fede/.local/bin"
-mkdir -p "/home/fede/.config"
+mkdir -p /home/fede/.local/bin
+chmod +x /home/fede/.local/bin
+mkdir -p /home/fede/.config
+chmod +x /home/fede/.config
 
 # Paso 3: Copiar .dotfiles/.config/nvim a ~/.config/
 cp -r /home/fede/.dotfiles/.config/nvim /home/fede/.config/
@@ -50,7 +52,9 @@ sudo mkdir -p -m 755 /etc/apt/keyrings && wget -qO- https://cli.github.com/packa
 # audio
 # sudo apt-get install -y expat libxml2-dev pkg-config libasound2-dev libssl-dev cmake libfreetype6-dev libexpat1-dev libxcb-composite0-dev libharfbuzz-dev 
 
+sleep 1
 source /home/fede/.bashrc
+sleep 1
 o
 
 echo "Buenisimo loco 👍️"
