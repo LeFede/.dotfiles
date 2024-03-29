@@ -13,29 +13,29 @@ apt upgrade
 
 # Paso 1: Verificar y crear la carpeta .local/bin si no existe
 if [ ! -d "/home/fede/.local" ]; then
-    mkdir -p "/home/fede/.local"
+  sudo mkdir -p "/home/fede/.local"
 fi
 if [ ! -d "/home/fede/.local/bin" ]; then
-    mkdir -p "/home/fede/.local/bin"
+  sudo mkdir -p "/home/fede/.local/bin"
 fi
 
 # Paso 2: Verificar y crear la carpeta .config si no existe
 if [ ! -d "/home/fede/.config" ]; then
-    mkdir -p "/home/fede/.config"
+  sudo mkdir -p "/home/fede/.config"
 fi
 
 # Paso 3: Copiar .dotfiles/.config/nvim a ~/.config/
-cp -r ~/.dotfiles/.config/nvim "/home/fede/.config/"
+sudo cp -r ~/.dotfiles/.config/nvim "/home/fede/.config/"
 
 # Paso 4: Copiar .dotfiles/.config/.snippets a ~/.config/
-cp -r ~/.dotfiles/.config/.snippets "/home/fede/.config/"
+sudo cp -r ~/.dotfiles/.config/.snippets "/home/fede/.config/"
 
-# Paso 5: Copiar .dotfiles/.local/share/bin/nvim a ~/.local/share/bin/
-cp -r ~/.dotfiles/.local/share/bin/nvim "/home/fede/.local/share/bin/"
+# Paso 5: Copiar .dotfiles/.local/bin/nvim a ~/.local/bin/
+sudo cp -r ~/.dotfiles/.local/bin/nvim.appimage "/home/fede/.local/bin/"
 
 # Paso 6: Borrar ~/.bashrc y copiar .config/.bashrc a ~/
-rm -f "/home/fede/.bashrc"
-cp ~/.dotfiles/.bashrc "/home/fede/"
+sudo rm -f "/home/fede/.bashrc"
+sudo cp ~/.dotfiles/.bashrc "/home/fede/"
 
 # Fondos
 # sudo apt-get install -y nitrogen
