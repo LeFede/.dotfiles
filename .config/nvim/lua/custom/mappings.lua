@@ -14,6 +14,7 @@ M.general = {
   },
 
   n = {
+    ["<C-b>"] = { "<cmd> %bd|e#|bd# <CR>", "Close buffers but this one"},
     ["<C-a>"] = { "<cmd> normal! gg0VG <CR>", "Select All" },
     ["<S-Up>"] = { "<cmd>m--<CR>" , "Move up"},
     ["<S-Down>"] = { "<cmd>m+<CR>" , "Move down"},
