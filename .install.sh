@@ -17,7 +17,7 @@ apt upgrade
 # sudo apt-get install -y maim 
 
 # DEV
-sudo apt-get install -y ripgrep clangd zip unzip python3-pip build-essential wget fuse curl xclip
+sudo apt-get install -y ripgrep clangd zip unzip python3-pip build-essential wget fuse curl xclip python3.11-venv
 
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 sudo apt install -y nodejs

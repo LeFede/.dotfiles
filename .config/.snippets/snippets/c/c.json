@@ -17,7 +17,7 @@
       "#endif"
     ],
     "description": "header guard. format :\n\tINCLUDE_<dirname>_<filename>_<extension>_"
-  }
+  },
 
   "Local lib": {
     "prefix": "!lib",
