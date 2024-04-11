@@ -50,5 +50,7 @@
 !/.folders.sh
 !/.snippets
 !/.config/.snippets
+!/.config/cordova
+!/.config/cordova/*
 !/.config/.snippets/*
 !/.snippets/*

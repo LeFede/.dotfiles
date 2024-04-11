@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.cordova.hellocordova" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Volpe Games</name>
+    <description>Another Volpe game uwu</description>
+    <author email="dev@cordova.apache.org" href="https://cordova.apache.org">
+        Volpe IT
+    </author>
+    <content src="index.html" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+
+    <!-- ? Fede uwu :D -->
+    <preference name="Fullscreen" value="true" />
+    <platform name="android">
+      <!-- * Loading screen animated icon -->
+      <preference name="AndroidWindowSplashScreenAnimatedIcon" value="500px.png" />
+      <preference name="AndroidWindowSplashScreenBackground" value="#00052b" />
+      <preference name="AndroidWindowSplashScreenIconBackgroundColor" value="#c0c0c0" />
+      
+      <!-- * FadeSplash -->
+      <!-- <preference name="SplashScreenDelay" value="3000" /> 
+      <preference name="FadeSplashScreenDuration" value="450"/>
+      <preference name="FadeSplashScreen" value="true"/> -->
+
+      <!-- * If set to false must call navigator.splashscreen.hide() -->
+      <preference name="AutoHideSplashScreen" value="true" />
+    <splash src="500px.png"/>
+
+      <!-- * Icon in menu -->
+      <!-- <icon background="500px.png" density="mdpi" foreground="500px.png" /> -->
+      <!-- <icon src="500px.png"/> -->
+
+      <!-- TODO -->
+      <icon background="500px.png" density="ldpi" foreground="500px.png" src="500px.png"/>
+      <icon background="500px.png" density="mdpi" foreground="500px.png" src="500px.png"/>
+      <icon background="500px.png" density="hdpi" foreground="500px.png" src="500px.png"/>
+      <icon background="500px.png" density="xhdpi" foreground="500px.png" src="500px.png"/>
+      <icon background="500px.png" density="xxhdpi" foreground="500px.png" src="500px.png"/>
+      <icon background="500px.png" density="xxxhdpi" foreground="500px.png" src="500px.png"/>
+
+    </platform>
+
+    <!--     
+      # @cordova-plugin-splashscreen
+      # https://www.npmjs.com/package/cordova-plugin-splashscreen
+     -->
+     <!-- ✅ -->
+
+
+    <!-- ❓ -->
+    <!-- <preference name="SplashShowOnlyFirstTime" value="false" /> -->
+
+    <!-- ❌ -->
+    <!-- <preference name="SplashScreenSpinnerColor" value="red" /> -->
+    <!-- <preference name="ShowSplashScreenSpinner" value="false"/> -->
+    <!-- <preference name="SplashMaintainAspectRatio" value="false" /> -->
+</widget>

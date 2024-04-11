@@ -17,7 +17,7 @@ set $window_border 1
 set $window_gap    5px
 
 # Power
-set $time_sleep 3
+set $time_sleep 0
 set $time_lock  0
 
 # Step
@@ -274,8 +274,8 @@ gaps outer $window_gap
 gaps inner $window_gap
 # On init
 exec nitrogen --restore
-exec --no-startup-id xautolock -time $time_sleep -locker "systemctl suspend" -corners 000-
-exec xset dpms 0 0 $time_lock
+# exec --no-startup-id xautolock -time $time_sleep -locker "systemctl suspend" -corners ----
+# exec xset dpms 0 0 $time_lock
 exec gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 # exec --no-startup-id /usr/libexec/gsd-xsettings
 

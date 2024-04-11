@@ -136,7 +136,7 @@ o() {
 	~/.local/bin/nvim.appimage .
 }
 
-alias bash="vim ~/.bashrc"
+# alias bash="vim ~/.bashrc"
 alias src="source ~/.bashrc"
 
 # Rofi ~
@@ -228,3 +228,7 @@ clip () {
     cat $1 | xclip -selection clipboard
   fi
 }
+
+export JAVA_HOME="/media/fede/LeDisco/Android/android-studio/jbr"
+export ANDROID_HOME="/media/fede/LeDisco/Android/Sdk"
+export NDK_HOME="$ANDROID_HOME/ndk/25.0.8775105"
