@@ -136,7 +136,7 @@ o() {
 	~/.local/bin/nvim.appimage .
 }
 
-# alias bash="vim ~/.bashrc"
+alias bashrc="vim ~/.bashrc"
 alias src="source ~/.bashrc"
 
 # Rofi ~
@@ -220,6 +220,15 @@ alias snippets="cd ~/.local/share/nvim/lazy/friendly-snippets/snippets/"
 
 
 
+clip2 () {
+  if [ "$#" -eq 0 ]; then
+    # 
+    :
+  else 
+    echo $1 | xclip -selection clipboard
+  fi
+}
+
 clip () {
   if [ "$#" -eq 0 ]; then
     # 
@@ -229,6 +238,11 @@ clip () {
   fi
 }
 
+
 export JAVA_HOME="/media/fede/LeDisco/Android/android-studio/jbr"
 export ANDROID_HOME="/media/fede/LeDisco/Android/Sdk"
 export NDK_HOME="$ANDROID_HOME/ndk/25.0.8775105"
+
+# pc name && model
+# sudo dmidecode -t System | grep Product
+
