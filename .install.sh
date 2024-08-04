@@ -63,6 +63,9 @@ echo "deb [signed-by=/etc/apt/keyrings/packages.mozilla.org.asc] https://package
 # Update your package list and install the Firefox Nightly .deb package:
 sudo apt-get update && sudo apt-get install -y firefox-nightly
 
+sudo npm i -g pnpm
+npm install -g @astrojs/language-server
+
 # Actualiza .bashrc
 echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
 source ~/.bashrc
