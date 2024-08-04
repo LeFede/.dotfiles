@@ -43,6 +43,11 @@ git config --global user.name "Federico Andres"
 # Configura pipx y bumblebee-status
 pipx install bumblebee-status
 
+vim -c MasonInstallAll
+vim -c TSInstall all
+
+amixer set Master 100%
+
 # Actualiza .bashrc
 echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
 source ~/.bashrc
