@@ -1,8 +1,8 @@
 # preparedot
 # movedot
 # restoredot
-
 /*
+
 
 /.config/*
 # /.config/nvim/*
@@ -48,9 +48,11 @@
 
 !/.install.sh
 !/.folders.sh
+!/deploy.sh
 !/.snippets
 !/.config/.snippets
 !/.config/cordova
 !/.config/cordova/*
 !/.config/.snippets/*
 !/.snippets/*
+!/README.md

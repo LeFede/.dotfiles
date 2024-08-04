@@ -246,3 +246,6 @@ export NDK_HOME="$ANDROID_HOME/ndk/25.0.8775105"
 # pc name && model
 # sudo dmidecode -t System | grep Product
 
+
+export PATH="$PATH:$HOME/.local/bin"
+
