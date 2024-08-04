@@ -39,6 +39,38 @@ rustup update
 # audio
 # sudo apt-get install -y expat libxml2-dev pkg-config libasound2-dev libssl-dev cmake libfreetype6-dev libexpat1-dev libxcb-composite0-dev libharfbuzz-dev 
 
+
+sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+source $HOME/.cargo/env
+
+
+. "$HOME/.cargo/env"
+
+git clone https://github.com/alacritty/alacritty.git
+cd alacritty
+
+cargo build --release
+
+sudo cp target/release/alacritty /usr/local/bin
+sudo cp extra/alacritty.desktop /usr/share/applications
+
+
+sudo apt update
+sudo apt install i3status i3lock dex nitrogen pavucontrol pulseaudio-utils \
+                 network-manager-gnome brightnessctl xdotool maim xclip python3 python3-pip pipx
+
+echo 'export PATH=$PATH:~/.local/bin' >> ~/.bashrc
+source ~/.bashrc
+
+pipx install bumblebee-status
+
+
+git config --global user.email "lefedeok@gmail.com"
+git config --global user.name "Federico Andres"
+
 sleep 1
 source /home/fede/.bashrc
 sleep 1
