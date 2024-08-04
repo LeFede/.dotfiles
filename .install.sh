@@ -12,7 +12,7 @@ apt upgrade -y
 apt install -y ripgrep clangd zip unzip python3-pip build-essential wget fuse curl xclip python3.11-venv \
                cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev \
                i3status i3lock dex nitrogen pavucontrol pulseaudio-utils network-manager-gnome brightnessctl \
-               xdotool maim xclip python3 python3-pip pipx gh xclip xsel
+               xdotool maim xclip python3 python3-pip pipx gh xclip xsel neofetch
 
 # Instala Node.js
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
