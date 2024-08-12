@@ -1,4 +1,5 @@
 # ~/.bashrc: executed by bash(1) for non-login shells.
+# 
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
@@ -249,3 +250,16 @@ export NDK_HOME="$ANDROID_HOME/ndk/25.0.8775105"
 
 export PATH="$PATH:$HOME/.local/bin"
 
+
+alias gitlines="git ls-files src | xargs wc -l | awk 'END {print $1}'"
+
+alias gp="git push"
+alias ga="git add ."
+alias gc="git commit -m"
+alias gcl="git clone"
+alias gch="git checkout -b"
+alias pd="pnpm dev"
+alias pb="pnpm build"
+
+# Ejecutar comando de vim sin log ni confirmacion
+vim -es -c "source replace_vars.vim" -c "qa"
