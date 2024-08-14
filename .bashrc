@@ -263,8 +263,11 @@ alias pb="pnpm build"
 
 # Ejecutar comando de vim sin log ni confirmacion
 vim -es -c "source replace_vars.vim" -c "qa"
+# Ej:
+# args src/**/*.css public/**/*.css
+# argdo %s/before/after/g | update
 
 # monitor 
 # xrandr
-# xrandr --output HDMI-0 --primary
+xrandr --output HDMI-0 --primary
 
