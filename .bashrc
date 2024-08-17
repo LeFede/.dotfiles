@@ -269,5 +269,5 @@ vim -es -c "source replace_vars.vim" -c "qa"
 
 # monitor 
 # xrandr
-xrandr --output HDMI-0 --primary
-
+# xrandr --output HDMI-0 --primary
+# xrandr --output HDMI-0 --primary --output DVI-D-0 --right-of HDMI-0
