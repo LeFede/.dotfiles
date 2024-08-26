@@ -1,8 +1,8 @@
 # preparedot
 # movedot
 # restoredot
-
 /*
+
 
 /.config/*
 # /.config/nvim/*
@@ -29,6 +29,8 @@
 
 !/.config/alacritty
 !/.config/i3
+!/.config/gtk-3.0
+!/.config/gtk-3.0/settings.ini
 !/.config/silicon
 !/.config/emoji
 !/.config/fontconfig
@@ -48,9 +50,11 @@
 
 !/.install.sh
 !/.folders.sh
+!/deploy.sh
 !/.snippets
 !/.config/.snippets
 !/.config/cordova
 !/.config/cordova/*
 !/.config/.snippets/*
 !/.snippets/*
+!/README.md

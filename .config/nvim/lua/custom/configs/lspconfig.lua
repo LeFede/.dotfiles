@@ -5,6 +5,8 @@ local capabilities = base.capabilities
 local lspconfig = require("lspconfig")
 local util = require("lspconfig/util")
 
+lspconfig.astro.setup({})
+
 lspconfig.clangd.setup {
   on_attach = function(client, bufnr)
     client.server_capabilities.signatureHelpProvider = false

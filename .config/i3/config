@@ -305,3 +305,9 @@ bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection c
 # move focused workspace between monitors
 bindsym $mod+Ctrl+greater move workspace to output right
 bindsym $mod+Ctrl+less move workspace to output left
+
+workspace 1 output HDMI-0
+workspace 2 output DVI-D-0
+
+exec --no-startup-id xrandr --output HDMI-0 --primary --output DVI-D-0 --right-of HDMI-0
+
