@@ -140,7 +140,7 @@ alias bashrc="vim ~/.bashrc"
 alias src="source ~/.bashrc"
 
 # Rofi ~
-# alias r="rofi -show run && exit"
+alias r="rofi -show run && exit"
 
 # Blueman ~ 
 alias bt="blueman-manager"
@@ -212,7 +212,11 @@ restoredot() {
 # Audio
 # alsamixer
 
+# ZIG para windows
+# zig build-exe src/main.zig -target x86_64-windows-gnu
 export PATH=$PATH:~/.zig
+alias z="zig build-exe src/main.zig && rm main.o && ./main"
+
 alias mr="make run"
 alias mt="make test"
 
@@ -246,3 +250,13 @@ export NDK_HOME="$ANDROID_HOME/ndk/25.0.8775105"
 # pc name && model
 # sudo dmidecode -t System | grep Product
 
+
+pas () {
+
+  if [ "$#" -eq 0 ]; then
+    # 
+    :
+  else 
+    fpc $1.pas && clear &&./$1 && rm -rf $1.o $1
+  fi
+}
