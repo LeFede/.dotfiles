@@ -252,7 +252,6 @@ export NDK_HOME="$ANDROID_HOME/ndk/25.0.8775105"
 # sudo dmidecode -t System | grep Product
 
 
-<<<<<<< HEAD
 pas () {
 
   if [ "$#" -eq 0 ]; then
