@@ -11,6 +11,11 @@ if [ "$EMOJI" ]; then
 fi
 # made with: curl -sL https://raw.githubusercontent.com/milesj/emojibase/master/packages/data/en/data.raw.json  | jq -r '.[] | .emoji + "  " + (.label | ascii_upcase) + "  " + (.tags | .? | map("#" + .) | join(" "))'
 exit 1
+✅  GREEN CHECK  #button #check #mark #✓
+☑️  BLUE CHECK  #box #check #✓
+✔️  GRAY CHECK  #check #mark #✓
+❌  RED X  #cancel #cross #mark #multiplication #multiply #x #×
+❎  GREEN X  #mark #square #x #×
 😀  GRINNING FACE  #face #grin
 😃  GRINNING FACE WITH BIG EYES  #face #mouth #open #smile
 😄  GRINNING FACE WITH SMILING EYES  #eye #face #mouth #open #smile
@@ -1289,11 +1294,6 @@ exit 1
 📛  NAME BADGE  #badge #name
 🔰  JAPANESE SYMBOL FOR BEGINNER  #beginner #chevron #japanese #japanese symbol for beginner #leaf
 ⭕️  HOLLOW RED CIRCLE  #circle #large #o #red
-✅  CHECK MARK BUTTON  #button #check #mark #✓
-☑️  CHECK BOX WITH CHECK  #box #check #✓
-✔️  CHECK MARK  #check #mark #✓
-❌  CROSS MARK  #cancel #cross #mark #multiplication #multiply #x #×
-❎  CROSS MARK BUTTON  #mark #square #x #×
 ➰  CURLY LOOP  #curl #loop
 ➿  DOUBLE CURLY LOOP  #curl #double #loop
 〽️  PART ALTERNATION MARK  #mark #part

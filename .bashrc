@@ -280,8 +280,29 @@ vim -es -c "source replace_vars.vim" -c "qa"
 # Ej:
 # args src/**/*.css public/**/*.css
 # argdo %s/before/after/g | update
+vim_replace() {
+    if [ "$#" -ne 2 ]; then
+        echo "Usage: vim_replace <search> <replace>"
+        return 1
+    fi
+
+    local search=$1
+    local replace=$2
+
+    vim -es -c "args src/**/*.* public/**/*.*" \
+        -c "argdo %s/${search}/${replace}/g | update" \
+        -c "qa"
+}
 
 # monitor 
 # xrandr
 # xrandr --output HDMI-0 --primary
 # xrandr --output HDMI-0 --primary --output DVI-D-0 --right-of HDMI-0
+
+# pnpm
+export PNPM_HOME="/home/fede/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

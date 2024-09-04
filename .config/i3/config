@@ -26,7 +26,7 @@ set $step_volume 10
 
 # Panel
 # pasink pasource battery date time memory
-set $panelDateFormat time.format="%H:%M" date.format="%a %d/%m/%y"
+set $panelDateFormat time.format="%H:%M:%S" date.format="%a %d/%m/%y"
 set $panelMemoryFormat memory.format='{used} {percent:05.02f}%'
 set $panelFont pango:HackNerdFont
 set $panelFontSize 10
