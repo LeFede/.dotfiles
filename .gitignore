@@ -58,3 +58,9 @@
 !/.config/.snippets/*
 !/.snippets/*
 !/README.md
+
+# Docker
+!/docker
+!/docker/*
+!/docker/example
+!/docker/example/*
