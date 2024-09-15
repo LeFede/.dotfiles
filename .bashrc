@@ -306,3 +306,23 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+
+# docker
+# docker run mongo -> descarga imagen, crea contenedor y ejecuta
+# docker pull mongo -> descarga imagen
+# -d -> detach 
+# -e {var} -> entorno 
+# docker logs monguito --follow
+# --network mired 
+# docker image rm mongo -> elimina imagen
+# -p27017:27017 -> conecta el puerto A local a B del cont.
+# --name monguito -> nombre del container
+# docker rm monguito -> eliminar por nombre
+# docker ps -a -> lista todos los containers
+# docker network ls
+# docker compose down
+# docker network create {name}
+# docker build -t {name}:{tag} {path}
+# docker compose -f docker-compose-dev.yml up
+# Dockerfile
