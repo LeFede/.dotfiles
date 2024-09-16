@@ -1,0 +1,11 @@
+services:
+  front:
+    build:
+      context: front
+    ports:
+      - "9000:9000"
+  back:
+    build:
+      context: back
+    ports:
+      - "3000:3000"
