@@ -1,0 +1,11 @@
+services:
+  app_name_1:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    links:
+      - app_name_2
+    volumes:
+      - .:/home/app

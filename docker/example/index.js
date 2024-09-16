@@ -24,7 +24,7 @@ app.get("/", async (_req, res) => {
 app.get("/crear", async (_req, res) => {
   console.log("Creando");
   const nuevoAnimal = await Animal.create({ tipo: "Chancho", estado: "feliz" });
-  return res.send("tremendoooo");
+  return res.send(JSON.stringify(nuevoAnimal) + "TREMENDO");
 });
 
 app.listen(3000, () => console.log("listening on port 3000 🚀..."));

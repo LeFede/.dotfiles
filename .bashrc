@@ -326,3 +326,6 @@ esac
 # docker build -t {name}:{tag} {path}
 # docker compose -f docker-compose-dev.yml up
 # Dockerfile
+alias ddev="sudo docker compose -f docker-compose-dev.yml up"
+alias dprod="sudo docker compose up"
+alias dps="sudo docker ps"
