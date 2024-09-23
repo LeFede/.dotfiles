@@ -326,6 +326,19 @@ esac
 # docker build -t {name}:{tag} {path}
 # docker compose -f docker-compose-dev.yml up
 # Dockerfile
-alias ddev="sudo docker compose -f docker-compose-dev.yml up"
+# alias ddev="sudo docker compose -f compose-dev.yml up"
+alias dev="sudo CONTAINER_FILE=Containerfile.dev docker compose -f compose.yml up"
+alias dup="sudo CONTAINER_FILE=Containerfile docker compose -f compose.yml up"
+alias rebuild="sudo CONTAINER_FILE=Containerfile docker compose -f compose.yml build"
+
 alias dprod="sudo docker compose up"
 alias dps="sudo docker ps"
+alias drm="sudo docker container rm"
+alias dim="sudo docker image rm"
+alias dimages="sudo docker images"
+alias ddown="sudo docker compose down"
+
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH=$BUN_INSTALL/bin:$PATH

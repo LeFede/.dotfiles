@@ -11,6 +11,8 @@ if [ "$EMOJI" ]; then
 fi
 # made with: curl -sL https://raw.githubusercontent.com/milesj/emojibase/master/packages/data/en/data.raw.json  | jq -r '.[] | .emoji + "  " + (.label | ascii_upcase) + "  " + (.tags | .? | map("#" + .) | join(" "))'
 exit 1
+✓ CHECK
+✗ CROSS
 ✅  GREEN CHECK  #button #check #mark #✓
 ☑️  BLUE CHECK  #box #check #✓
 ✔️  GRAY CHECK  #check #mark #✓
