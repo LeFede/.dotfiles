@@ -76,7 +76,17 @@ sudo apt install libxml2-dev
 sudo apt install pkg-config libasound2-dev libssl-dev cmake libfreetype6-dev libexpat1-dev libxcb-composite0-dev libharfbuzz-dev libfontconfig1-dev g++
 cargo install silicon
 
+# NO SE PORQUE HAY QUE HACERLO APARTE
+# BUMBLEBEE
+pipx install bumblebee-status
+# RUST
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # Bun
 curl -fsSL https://bun.sh/install | bash
+
+# Steam libs
+sudo dpkg --add-architecture i386
+sudo apt update
+sudo apt install libgl1:i386 libdrm2:i386
 
 echo "Buenisimo loco 👍️"
