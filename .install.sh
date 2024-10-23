@@ -76,6 +76,9 @@ sudo apt install libxml2-dev
 sudo apt install pkg-config libasound2-dev libssl-dev cmake libfreetype6-dev libexpat1-dev libxcb-composite0-dev libharfbuzz-dev libfontconfig1-dev g++
 cargo install silicon
 
+# NVM
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
+
 # NO SE PORQUE HAY QUE HACERLO APARTE
 # BUMBLEBEE
 pipx install bumblebee-status
