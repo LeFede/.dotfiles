@@ -1,4 +1,3 @@
-import = ["/home/fede/.config/alacritty/catppuccin/catppuccin-mocha.toml"]
 
 [cursor]
 style = "Underline"
@@ -14,3 +13,6 @@ family = "terminal-font"
 
 [window]
 dynamic_padding = true
+
+[general]
+import = ["/home/fede/.config/alacritty/catppuccin/catppuccin-mocha.toml"]

@@ -4,7 +4,56 @@
     "body": ["🚀 ;D"],
     "description": "Probando xd"
   },
-  
+
+  "Component": {
+    "prefix": "!co",
+    "body": [
+      "#ifndef _CO_${1:component_name}_H",
+      "#define _CO_${1:component_name}_H",
+      "#include <flecs.h>",
+      "",
+      "typedef struct co_${1:component_name} {",
+      " ${2:component}",
+      "} co_${1:component_name};",
+      "",
+      "extern ECS_COMPONENT_DECLARE(co_${1:component_name});",
+      "#endif"
+    ],
+    "description": "component. "
+  },
+
+  "Singleton": {
+    "prefix": "!si",
+    "body": [
+      "#ifndef _SI_${1:component_name}_H",
+      "#define _SI_${1:component_name}_H",
+      "#include <flecs.h>",
+      "",
+      "typedef struct si_${1:component_name} {",
+      " ${2:component}",
+      "} si_${1:component_name};",
+      "",
+      "extern ECS_COMPONENT_DECLARE(si_${1:component_name});",
+      "#endif"
+    ],
+    "description": "singleton. "
+  },
+
+  "System": {
+    "prefix": "!sy",
+    "body": [
+      "void sy_${1:system_name} (ecs_iter_t *it) {",
+      " // const si_Singleton *s = ecs_singleton_get(it->world, si_Singleton)",
+      " // co_Position *p = ecs_field(it, co_Position, 0);",
+      "",
+      " for (int i = 0; i < it->count; i++) {",
+      "   // do something",
+      " }",
+      "}",
+      ""
+    ],
+    "description": "system. "
+  },
 
   "Guard": {
     "prefix": "!guard",
@@ -21,62 +70,37 @@
 
   "Local lib": {
     "prefix": "!lib",
-    "body": [
-      "#include \"../include/${1:lib_name}.h\""
-    ],
+    "body": ["#include \"../include/${1:lib_name}.h\""],
     "description": "Include local lib"
   },
 
   "Global lib": {
     "prefix": "!glib",
-    "body": [
-      "#include <${1:lib_name}.h>"
-    ],
+    "body": ["#include <${1:lib_name}.h>"],
     "description": "Include global lib"
   },
 
   "Main": {
     "prefix": "!main",
-    "body": [
-      "int main(int argc, char *argv[])",
-      "{",
-      "  ${1}",
-      "}"
-    ],
+    "body": ["int main(int argc, char *argv[])", "{", "  ${1}", "}"],
     "description": "Main starter"
   },
 
-
   "Function definition": {
     "prefix": "!fn",
-    "body": [
-      "${1: type}", 
-      "${2:name}",
-      "(${3:args})",
-      "{",
-      "  ${4}",
-      "}"
-    ],
+    "body": ["${1: type}", "${2:name}", "(${3:args})", "{", "  ${4}", "}"],
     "description": "Function definition"
   },
-  
 
   "Struct definition": {
     "prefix": "!s",
-    "body": [
-      "typedef struct ${1: name}",
-      "{",
-      "  ${2:fields}",
-      "} ${1:name};"
-    ],
+    "body": ["typedef struct ${1: name}", "{", "  ${2:fields}", "} ${1:name};"],
     "description": "Struct definition"
   },
 
   "print ln": {
     "prefix": "!p",
-    "body": [
-      "println(\"${1:string}\", ${2:args});"
-    ],
+    "body": ["println(\"${1:string}\", ${2:args});"],
     "description": "Print line"
   },
 

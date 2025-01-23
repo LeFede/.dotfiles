@@ -117,9 +117,9 @@ alias vim="~/.local/bin/nvim.appimage"
 alias cc="rm -rf /home/fede/.local/state/nvim/ && killall -u fede"
 
 # System
-alias rb='systemctl reboot -i'
-alias sd='systemctl poweroff -i'
-alias sp='systemctl suspend -i'
+alias rb='systemctl reboot'
+alias sd='systemctl poweroff'
+alias sp='systemctl suspend'
 alias bs='vim ~/.bashrc'
 alias lo='pkill -Kill -u fede'
 #xset dpms 0 0 60 # monitor
@@ -342,3 +342,5 @@ alias ddown="sudo docker compose down"
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
+
+export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
