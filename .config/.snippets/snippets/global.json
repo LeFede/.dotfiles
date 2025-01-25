@@ -1,0 +1,23 @@
+{
+  "Separator 1": {
+    "prefix": "!separator1",
+    "body": [
+      "/* ─────────────────────── ${1:title} ─────────────────────── */"
+    ],
+    "description": "separator 1"
+  },
+  "Separator 2": {
+    "prefix": "!separator2",
+    "body": [
+      "/* ══════════════════════════ ${1:title} ══════════════════════════ */"
+    ],
+    "description": "separator 2"
+  },
+  "Full": {
+    "prefix": "!full",
+    "body": [
+      "/****************************************************************************/"
+    ],
+    "description": "full"
+  }
+}
