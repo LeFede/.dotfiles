@@ -8,11 +8,20 @@ set $color_navbar   #181818
 set $color_unactive #282828
 set $color_urgent2  #cc241d
 set $color_urgent   #fb4934
+set $color_green    #4ff69d
+set $color_white    #ffffff
+set $color_darkgray #666666
+set $color_gray     #aaaaaa
 # set $color #fbf1c7
 # set $color
 
+client.focused          #ff0000 $color_green $white $color_green
+client.unfocused        $color_darkgray $color_darkgray $color_darkgray $color_darkgray
+client.focused_inactive $color_darkgray $color_darkgray $color_darkgray $color_darkgray
+client.urgent           $color_urgent   $color_urgent   $color_urgent   $white
+
 # Window
-set $window_border 1
+set $window_border 2
 set $window_gap    5px
 
 # Power
