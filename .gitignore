@@ -46,6 +46,7 @@
 !/.local/bin/nvim.appimage
 !/.gitignore
 !/.git
+!/script.sh
 
 
 !/.install.sh

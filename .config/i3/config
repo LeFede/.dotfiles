@@ -15,10 +15,10 @@ set $color_gray     #aaaaaa
 # set $color #fbf1c7
 # set $color
 
-client.focused          #ff0000 $color_green $white $color_green
+client.focused          #ff0000 $color_green $color_white $color_green
 client.unfocused        $color_darkgray $color_darkgray $color_darkgray $color_darkgray
 client.focused_inactive $color_darkgray $color_darkgray $color_darkgray $color_darkgray
-client.urgent           $color_urgent   $color_urgent   $color_urgent   $white
+client.urgent           $color_urgent   $color_urgent   $color_urgent   $color_white
 
 # Window
 set $window_border 2
@@ -261,14 +261,15 @@ bar {
   tray_padding $panelTrayPadding
   # separator_symbol " "
   # separator_symbol_font "terminal-font"
-  tray_output primary
+  # tray_output primary # ocultar
   status_command \
     $bumblebeeLocation -m \
     $panelModules \
     -p root.path=/ \
     $panelDateFormat \
     $panelMemoryFormat \
-    -t $panelTheme 
+    -t $panelTheme \
+    -p theme.path=~/.local/share/pipx/venvs/bumblebee-status/share/bumblebee-status/themes
 }
 
 

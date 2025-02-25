@@ -1,10 +1,20 @@
 #!/bin/bash
 
-# Verifica si el usuario tiene privilegios de superusuario
 if [ "$EUID" -ne 0 ]; then
-  echo "Dale capo pone sudo 😁"
-  exit 1
+	echo "Sudo missing"
+	exit
 fi
+
+USER_HOME=$(getent passwd "$SUDO_USER" | cut -d: -f6)
+DOTFILES_HOME_FOLDER="base/"
+
+# mkdir -p "$USER_HOME/.local/bin/tal"
+rsync -av $DOTFILES_HOME_FOLDER "$USER_HOME"
+cp -r ".git." "$USER_HOME"
+cp -r ".gitignore" "$USER_HOME"
+
+chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME"
+# chown -R "$SUDO_USER:$SUDO_USER" ./tal
 
 # Actualiza la lista de paquetes e instala paquetes esenciales
 apt update
@@ -17,6 +27,9 @@ apt install -y ripgrep clangd zip unzip python3-pip build-essential wget fuse cu
 # Instala Node.js
 curl -fsSL https://deb.nodesource.com/setup_current.x | sudo -E bash -
 apt install -y nodejs
+
+# RUST
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 # Configura el repositorio de GitHub CLI y lo instala
 sudo mkdir -p /etc/apt/keyrings
@@ -82,8 +95,6 @@ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.5/install.sh | bash
 # NO SE PORQUE HAY QUE HACERLO APARTE
 # BUMBLEBEE
 pipx install bumblebee-status
-# RUST
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 # Bun
 curl -fsSL https://bun.sh/install | bash
 
@@ -92,5 +103,9 @@ sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt install libgl1:i386 libdrm2:i386
 sudo apt install libc6:amd64 libc6:i386 libegl1:amd64 libegl1:i386 libgbm1:amd64 libgbm1:i386 libgl1-mesa-dri:amd64 libgl1-mesa-dri:i386 libgl1:amd64 libgl1:i386 steam-libs-amd64:amd64 steam-libs-i386:i386 xdg-desktop-portal xdg-desktop-portal-gtk
+
+sudo apt install libfuse2
+
+sudo apt install alacritty
 
 echo "Buenisimo loco 👍️"

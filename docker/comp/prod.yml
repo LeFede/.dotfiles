@@ -1,7 +1,0 @@
-services:
-  app_name_1:
-    build: .
-    ports:
-      - "3000:3000"
-    links:
-      - app_name_2
