@@ -6,14 +6,20 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 USER_HOME=$(getent passwd "$SUDO_USER" | cut -d: -f6)
-DOTFILES_HOME_FOLDER="base/"
+CONFIG_FOLDER=".config/"
+FONTS_FOLDER=".fonts/"
+BIN_FOLDER=".local/bin/"
+BASHRC=".bashrc"
 
 # mkdir -p "$USER_HOME/.local/bin/tal"
-rsync -av $DOTFILES_HOME_FOLDER "$USER_HOME"
+rsync -av $CONFIG_FOLDER "$USER_HOME"
+rsync -av $FONTS_FOLDER "$USER_HOME"
+rsync -av $BIN_FOLDER "$USER_HOME"
+cp $BASHRC "$USER_HOME"
 cp -r ".git." "$USER_HOME"
 cp -r ".gitignore" "$USER_HOME"
 
-chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME"
+# chown -R "$SUDO_USER:$SUDO_USER" "$USER_HOME"
 # chown -R "$SUDO_USER:$SUDO_USER" ./tal
 
 # Actualiza la lista de paquetes e instala paquetes esenciales
