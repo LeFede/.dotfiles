@@ -344,3 +344,9 @@ export BUN_INSTALL="$HOME/.bun"
 export PATH=$BUN_INSTALL/bin:$PATH
 
 export LD_LIBRARY_PATH=/usr/local/lib:$LD_LIBRARY_PATH
+
+alias ron="redshift -O 3500K"
+alias roff="redshift -x"
+
+# POWERSAVE
+# sudo nano /etc/NetowrkManager/conf.d/default-wifi-powersave-on.conf

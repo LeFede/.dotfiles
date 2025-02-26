@@ -34,10 +34,17 @@ set $step_volume 10
 
 # Panel
 # pasink pasource battery date time memory
-set $panelDateFormat time.format="%H:%M:%S" date.format="%a %d/%m/%y"
+set $modules spacer battery spacer cpu spacer memory spacer date spacer time
+set $formats "" \
+  time.format="%H:%M:%S" \
+  date.format="%a %d/%m/%y"\
+  cpu.format="{:.01f}%" \
+  memory.format='{used} {percent:05.02f}%'
+  # memory.usedonly=True
+set $panelDateFormat -p time.format="%H:%M:%S" date.format="%a %d/%m/%y"
 set $panelMemoryFormat memory.format='{used} {percent:05.02f}%'
 set $panelFont pango:HackNerdFont
-set $panelFontSize 10
+set $panelFontSize 12
 set $panelModules battery memory date time
 # amixer
 set $panelPosition top
@@ -49,7 +56,8 @@ set $terminalFont pango:HackNerdFont
 set $terminalFontSize 10
 
 # Config
-set $bumblebeeLocation /home/fede/.local/bin/bumblebee-status
+# set $bumblebeeLocation /home/fede/.local/bin/bumblebee-status
+set $bumblebeeLocation ~/.config/i3/bumblebee-status/bumblebee-status 
 set $terminal alacritty
 
 
@@ -84,7 +92,7 @@ exec --no-startup-id dex --autostart --environment i3
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+# exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -225,7 +233,6 @@ mode "resize" {
         bindsym k resize grow height 10 px or 10 ppt
         bindsym l resize shrink height 10 px or 10 ppt
         bindsym semicolon resize grow width 10 px or 10 ppt
-
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
@@ -244,32 +251,30 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 
 bar {
+  position $panelPosition
+  font $panelFont $panelFontSize
+  status_command $bumblebeeLocation \
+    -t $panelTheme \
+    -m $modules \
+    -p $formats \
+    -p root.path=/ 
+
   colors {
     background $color_navbar
     # statusline $bg-2
     # separator  $bg-3
-    focused_workspace  $color_active $color_active $color_unactive
+    focused_workspace  $color_active $color_active $color_white
     active_workspace   $color_active $color_active $color_unactive
     inactive_workspace $color_unactive $color_unactive $color_active
     urgent_workspace   $color_urgent $color_urgent $color_urgent2
     binding_mode       $color_urgent2 $color_urgent2 $color_unactive
   }
-  # font pango:terminal-font 10
-  font $panelFont $panelFontSize
-  position $panelPosition
-  # padding 1
-  tray_padding $panelTrayPadding
+  ## font pango:terminal-font 10
   # separator_symbol " "
-  # separator_symbol_font "terminal-font"
+  ## separator_symbol_font "terminal-font"
   # tray_output primary # ocultar
-  status_command \
-    $bumblebeeLocation -m \
-    $panelModules \
-    -p root.path=/ \
-    $panelDateFormat \
-    $panelMemoryFormat \
-    -t $panelTheme \
-    -p theme.path=~/.local/share/pipx/venvs/bumblebee-status/share/bumblebee-status/themes
+  # padding 1
+  # tray_padding $panelTrayPadding
 }
 
 
@@ -296,9 +301,13 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id amixer set Master $step_volume
 bindsym XF86AudioMute exec amixer -q set Master toggle
 # Emoji
 bindsym Mod1+Shift+q exec sh ~/.config/emoji
-# Brightness
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +$step_bright%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set $step_bright%-
+# Brightness Debian
+# bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +$step_bright%
+# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set $step_bright%-
+
+# Brightness Ubuntu
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl s $step_bright%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl s $step_bright%-
 
 # Screenshots
 bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/$(date)"
