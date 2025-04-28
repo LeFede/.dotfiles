@@ -34,7 +34,7 @@ set $step_volume 10
 
 # Panel
 # pasink pasource battery date time memory
-set $modules spacer battery spacer cpu spacer memory spacer date spacer time
+set $modules spacer network spacer battery spacer cpu spacer memory spacer date spacer time
 set $formats "" \
   time.format="%H:%M:%S" \
   date.format="%a %d/%m/%y"\
@@ -334,8 +334,7 @@ workspace 2 output DVI-D-0
 
 exec --no-startup-id xrandr --output HDMI-0 --primary --output DVI-D-0 --right-of HDMI-0
 
-exec --no-startup-id xautolock -time 10000 -locker "i3lock"
-
-exec --no-startup-id xset s off
-exec --no-startup-id xset -dpms
-exec --no-startup-id xset s noblank
+# exec --no-startup-id xautolock -time 10000 -locker "i3lock"
+# exec --no-startup-id xset s off
+# exec --no-startup-id xset -dpms
+# exec --no-startup-id xset s noblank

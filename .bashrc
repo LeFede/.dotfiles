@@ -350,3 +350,40 @@ alias roff="redshift -x"
 
 # POWERSAVE
 # sudo nano /etc/NetowrkManager/conf.d/default-wifi-powersave-on.conf
+#
+export FLYCTL_INSTALL="/home/fede/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+
+
+# alias doff="docker stop $(docker ps -aq) && docker rm $(docker ps -aq) && docker rmi $(docker images -q)"
+
+alias doff="docker system prune"
+
+drmc() {
+  docker rm -f $(docker ps -aq)
+}
+
+drmi() {
+  docker rmi -f $(docker images -q)
+}
+
+build() {
+  local name=$1
+  docker build -f apps/$name/Dockerfile -t apps-$name .
+}
+
+build() {
+  local name=$1
+  docker build -f apps/$name/Dockerfile -t apps-$name .
+}
+
+launch(){ 
+  local name=$1
+  fly launch --config apps/$name/fly.toml --ha=false
+}
+
+deploy(){ 
+  local name=$1
+  fly deploy --config apps/$name/fly.toml --ha=false
+}
