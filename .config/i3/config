@@ -44,7 +44,7 @@ set $formats "" \
 set $panelDateFormat -p time.format="%H:%M:%S" date.format="%a %d/%m/%y"
 set $panelMemoryFormat memory.format='{used} {percent:05.02f}%'
 set $panelFont pango:HackNerdFont
-set $panelFontSize 12
+set $panelFontSize 8
 set $panelModules battery memory date time
 # amixer
 set $panelPosition top
