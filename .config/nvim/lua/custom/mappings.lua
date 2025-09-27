@@ -19,11 +19,11 @@ M.general = {
     ["<S-Up>"] = { "<cmd>m--<CR>" , "Move up"},
     ["<S-Down>"] = { "<cmd>m+<CR>" , "Move down"},
     ["<Esc>"] = { ":noh <CR>", "clear highlights" },
-    -- switch between windows
-    ["<C-h>"] = { "<C-w>h", "window left" },
-    ["<C-l>"] = { "<C-w>l", "window right" },
-    ["<C-j>"] = { "<C-w>j", "window down" },
-    ["<C-k>"] = { "<C-w>k", "window up" },
+    -- tmux navigator integration
+    ["<C-h>"] = { "<cmd>TmuxNavigateLeft<CR>", "window left or tmux pane left" },
+    ["<C-l>"] = { "<cmd>TmuxNavigateRight<CR>", "window right or tmux pane right" },
+    ["<C-j>"] = { "<cmd>TmuxNavigateDown<CR>", "window down or tmux pane down" },
+    ["<C-k>"] = { "<cmd>TmuxNavigateUp<CR>", "window up or tmux pane up" },
 
     -- save
     ["<C-s>"] = { "<cmd> w <CR>", "save file" },

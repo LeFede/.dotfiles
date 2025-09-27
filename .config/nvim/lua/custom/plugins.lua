@@ -1,5 +1,26 @@
 local plugins = {
   {
+    "hrsh7th/cmp-nvim-lsp",
+    commit = "39e2eda76828d88b773cc27a3f61d2ad782c922d",
+  },
+  {
+    "nvim-tree/nvim-web-devicons",
+    opts = function()
+      local devicons = require("nvim-web-devicons")
+      devicons.setup {
+        override_by_extension = {
+          ["astro"] = {
+            icon = "󰑣",
+            color = "#FF5D01",
+            cterm_color = "202",
+            name = "Astro"
+          }
+        }
+      }
+      return {}
+    end,
+  },
+  {
     "jose-elias-alvarez/null-ls.nvim",
     event = "VeryLazy",
     opts = function()
@@ -55,6 +76,7 @@ local plugins = {
       "javascriptreact",
       "typescript",
       "typescriptreact",
+      "astro",
     },
     config = function()
       require("nvim-ts-autotag").setup()
@@ -73,6 +95,7 @@ local plugins = {
         "c",
         "css",
         "rust",
+        "astro",
       }
       return opts
     end
@@ -85,6 +108,12 @@ local plugins = {
     init = function ()
       vim.g.rustfmt_autosave = 1
     end
+  },
+
+  -- Tmux Navigator
+  {
+    "christoomey/vim-tmux-navigator",
+    lazy = false,
   },
 
   -- {

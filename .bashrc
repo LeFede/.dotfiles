@@ -387,3 +387,63 @@ deploy(){
   local name=$1
   fly deploy --config apps/$name/fly.toml --ha=false
 }
+
+alias laptopoff="xrandr --output eDP --off"
+alias laptopon="xrandr --auto"
+alias laptopext="xrandr --output eDP --auto --output HDMI-A-0 --auto --right-of eDP"
+
+alias cpwd='pwd | xclip -selection clipboard'
+
+# Audio switching functions
+auris() {
+    local hyperx_id=$(wpctl status | grep "HyperX Cloud III Wireless Analog Stereo" | awk '{print $2}' | tr -d '.')
+    if [ -n "$hyperx_id" ]; then
+        wpctl set-default $hyperx_id
+        echo "Audio switched to HyperX Cloud III Wireless (ID: $hyperx_id)"
+    else
+        echo "HyperX Cloud III Wireless not found"
+    fi
+}
+
+focusrite() {
+    local focusrite_id=$(wpctl status | grep "Focusrite Scarlett 2i2 Analog Stereo" | awk '{print $2}' | tr -d '.')
+    if [ -n "$focusrite_id" ]; then
+        wpctl set-default $focusrite_id
+        echo "Audio switched to Focusrite Scarlett 2i2 (ID: $focusrite_id)"
+    else
+        echo "Focusrite Scarlett 2i2 not found"
+    fi
+}
+
+laptop() {
+    local laptop_id=$(wpctl status | grep "Speaker + Headphones" | awk '{print $2}' | tr -d '.')
+    if [ -n "$laptop_id" ]; then
+        wpctl set-default $laptop_id
+        echo "Audio switched to laptop speakers (ID: $laptop_id)"
+    else
+        echo "Laptop speakers not found"
+    fi
+}
+
+battery() {
+    local status=$(cat /sys/class/power_supply/BAT0/status)
+    local capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+    
+    case $status in
+        "Charging")
+            echo "🔋 Cargando: $capacity%"
+            ;;
+        "Discharging")
+            echo "🔋 Usando batería: $capacity%"
+            ;;
+        "Full")
+            echo "🔌 Conectado a corriente: $capacity% (carga completa)"
+            ;;
+        *)
+            echo "🔋 Estado: $status - $capacity%"
+            ;;
+    esac
+}
+
+
+alias t="tmux a"

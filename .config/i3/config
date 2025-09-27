@@ -44,7 +44,7 @@ set $formats "" \
 set $panelDateFormat -p time.format="%H:%M:%S" date.format="%a %d/%m/%y"
 set $panelMemoryFormat memory.format='{used} {percent:05.02f}%'
 set $panelFont pango:HackNerdFont
-set $panelFontSize 8
+set $panelFontSize 10
 set $panelModules battery memory date time
 # amixer
 set $panelPosition top
@@ -120,6 +120,9 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec --no-startup-id dmenu_run
 bindsym $mod+Shift+d exec --no-startup-id i3-dmenu-desktop
+
+# theme toggle
+bindsym $mod+t exec --no-startup-id /home/fede/.local/bin/theme-toggle.sh
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
@@ -218,6 +221,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
@@ -324,19 +328,125 @@ bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t ima
 bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
 bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png
 
+
 ## Monitor
 # move focused workspace between monitors
 bindsym $mod+Ctrl+greater move workspace to output right
 bindsym $mod+Ctrl+less move workspace to output left
 
-workspace 1 output HDMI-0
-workspace 2 output DVI-D-0
-
-exec --no-startup-id xrandr --output HDMI-0 --primary --output DVI-D-0 --right-of HDMI-0
+workspace 1 output HDMI-A-0
+workspace 2 output eDP
 
 # exec --no-startup-id xautolock -time 10000 -locker "i3lock"
-# exec --no-startup-id xset s off
-# exec --no-startup-id xset -dpms
-# exec --no-startup-id xset s noblank
+exec --no-startup-id xset s off
+exec --no-startup-id xset -dpms
+exec --no-startup-id xset s noblank
+exec --no-startup-id xset s 0 0
 
-exec --no-startup-id xrandr --output eDP --mode 1280x720
+# Inicial monitor setup y monitoreo de tapa
+exec --no-startup-id /home/fede/.local/bin/lid-handler.sh
+# exec --no-startup-id /home/fede/.local/bin/lid-monitor.sh
+
+# Keynav - control mouse with keyboard
+exec --no-startup-id sh -c "sleep 2 && keynav"
+
+
+# Mouse control with numpad using xdotool
+set $mouse_step 50
+set $mouse_fast 200
+set $mouse_slow 5
+
+# Basic movement (normal speed) - NumLock OFF
+bindsym KP_Left exec --no-startup-id xdotool mousemove_relative -- -$mouse_step 0
+bindsym KP_Right exec --no-startup-id xdotool mousemove_relative $mouse_step 0
+bindsym KP_Up exec --no-startup-id xdotool mousemove_relative 0 -$mouse_step
+bindsym KP_Down exec --no-startup-id xdotool mousemove_relative 0 $mouse_step
+
+# Basic movement (normal speed) - NumLock ON
+bindsym KP_4 exec --no-startup-id xdotool mousemove_relative -- -$mouse_step 0
+bindsym KP_6 exec --no-startup-id xdotool mousemove_relative $mouse_step 0
+bindsym KP_8 exec --no-startup-id xdotool mousemove_relative 0 -$mouse_step
+bindsym KP_2 exec --no-startup-id xdotool mousemove_relative 0 $mouse_step
+
+# Fast movement with Ctrl - NumLock OFF
+bindsym Ctrl+KP_Left exec --no-startup-id xdotool mousemove_relative -- -$mouse_fast 0
+bindsym Ctrl+KP_Right exec --no-startup-id xdotool mousemove_relative $mouse_fast 0
+bindsym Ctrl+KP_Up exec --no-startup-id xdotool mousemove_relative 0 -$mouse_fast
+bindsym Ctrl+KP_Down exec --no-startup-id xdotool mousemove_relative 0 $mouse_fast
+
+# Fast movement with Ctrl - NumLock ON
+bindsym Ctrl+KP_4 exec --no-startup-id xdotool mousemove_relative -- -$mouse_fast 0
+bindsym Ctrl+KP_6 exec --no-startup-id xdotool mousemove_relative $mouse_fast 0
+bindsym Ctrl+KP_8 exec --no-startup-id xdotool mousemove_relative 0 -$mouse_fast
+bindsym Ctrl+KP_2 exec --no-startup-id xdotool mousemove_relative 0 $mouse_fast
+
+# Slow movement with Alt - NumLock OFF
+bindsym $alt+KP_Left exec --no-startup-id xdotool mousemove_relative -- -$mouse_slow 0
+bindsym $alt+KP_Right exec --no-startup-id xdotool mousemove_relative $mouse_slow 0
+bindsym $alt+KP_Up exec --no-startup-id xdotool mousemove_relative 0 -$mouse_slow
+bindsym $alt+KP_Down exec --no-startup-id xdotool mousemove_relative 0 $mouse_slow
+
+# Slow movement with Alt - NumLock ON
+bindsym $alt+KP_4 exec --no-startup-id xdotool mousemove_relative -- -$mouse_slow 0
+bindsym $alt+KP_6 exec --no-startup-id xdotool mousemove_relative $mouse_slow 0
+bindsym $alt+KP_8 exec --no-startup-id xdotool mousemove_relative 0 -$mouse_slow
+bindsym $alt+KP_2 exec --no-startup-id xdotool mousemove_relative 0 $mouse_slow
+
+# Clicks
+bindsym KP_Begin exec --no-startup-id xdotool click 1
+bindsym KP_5 exec --no-startup-id xdotool click 1
+bindsym KP_Subtract exec --no-startup-id xdotool click 3
+
+# Diagonal movement (normal speed) - NumLock OFF
+bindsym KP_Home exec --no-startup-id xdotool mousemove_relative -- -$mouse_step -$mouse_step
+bindsym KP_Prior exec --no-startup-id xdotool mousemove_relative $mouse_step -$mouse_step
+bindsym KP_End exec --no-startup-id xdotool mousemove_relative -- -$mouse_step $mouse_step
+bindsym KP_Next exec --no-startup-id xdotool mousemove_relative $mouse_step $mouse_step
+
+# Diagonal movement (normal speed) - NumLock ON
+bindsym KP_7 exec --no-startup-id xdotool mousemove_relative -- -$mouse_step -$mouse_step
+bindsym KP_9 exec --no-startup-id xdotool mousemove_relative $mouse_step -$mouse_step
+bindsym KP_1 exec --no-startup-id xdotool mousemove_relative -- -$mouse_step $mouse_step
+bindsym KP_3 exec --no-startup-id xdotool mousemove_relative $mouse_step $mouse_step
+
+# Fast diagonal movement with Ctrl - NumLock OFF
+bindsym Ctrl+KP_Home exec --no-startup-id xdotool mousemove_relative -- -$mouse_fast -$mouse_fast
+bindsym Ctrl+KP_Prior exec --no-startup-id xdotool mousemove_relative $mouse_fast -$mouse_fast
+bindsym Ctrl+KP_End exec --no-startup-id xdotool mousemove_relative -- -$mouse_fast $mouse_fast
+bindsym Ctrl+KP_Next exec --no-startup-id xdotool mousemove_relative $mouse_fast $mouse_fast
+
+# Fast diagonal movement with Ctrl - NumLock ON
+bindsym Ctrl+KP_7 exec --no-startup-id xdotool mousemove_relative -- -$mouse_fast -$mouse_fast
+bindsym Ctrl+KP_9 exec --no-startup-id xdotool mousemove_relative $mouse_fast -$mouse_fast
+bindsym Ctrl+KP_1 exec --no-startup-id xdotool mousemove_relative -- -$mouse_fast $mouse_fast
+bindsym Ctrl+KP_3 exec --no-startup-id xdotool mousemove_relative $mouse_fast $mouse_fast
+
+# Slow diagonal movement with Alt - NumLock OFF
+bindsym $alt+KP_Home exec --no-startup-id xdotool mousemove_relative -- -$mouse_slow -$mouse_slow
+bindsym $alt+KP_Prior exec --no-startup-id xdotool mousemove_relative $mouse_slow -$mouse_slow
+bindsym $alt+KP_End exec --no-startup-id xdotool mousemove_relative -- -$mouse_slow $mouse_slow
+bindsym $alt+KP_Next exec --no-startup-id xdotool mousemove_relative $mouse_slow $mouse_slow
+
+# Slow diagonal movement with Alt - NumLock ON
+bindsym $alt+KP_7 exec --no-startup-id xdotool mousemove_relative -- -$mouse_slow -$mouse_slow
+bindsym $alt+KP_9 exec --no-startup-id xdotool mousemove_relative $mouse_slow -$mouse_slow
+bindsym $alt+KP_1 exec --no-startup-id xdotool mousemove_relative -- -$mouse_slow $mouse_slow
+bindsym $alt+KP_3 exec --no-startup-id xdotool mousemove_relative $mouse_slow $mouse_slow
+
+# Disable wakeup sources
+exec --no-startup-id sudo /home/fede/.local/bin/disable-wakeup.sh
+
+# Fix ethernet disconnections and disable notifications
+exec --no-startup-id sudo /home/fede/.local/bin/fix-ethernet.sh
+exec --no-startup-id gsettings set org.gnome.nm-applet disable-disconnected-notifications true
+exec --no-startup-id gsettings set org.gnome.nm-applet disable-connected-notifications true
+
+
+
+
+
+
+
+
+
+
