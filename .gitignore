@@ -25,6 +25,9 @@
 !/.zshrc
 !/.p10k.zsh
 
+# Tmux configuration
+!/.tmux.conf
+
 # Exclude oh-my-zsh installation (can be reinstalled)
 .oh-my-zsh
 
